@@ -1,8 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Source Sans Pro";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,3 +13,176 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer base {
+
+  html,
+  body {
+    @apply antialiased;
+    background: #f9f9f9;
+  }
+
+  * {
+    outline: none
+  }
+}
+
+@layer components {
+  img {
+    border-radius: 5px
+  }
+
+  .container {}
+
+  section {
+    @apply my-4
+  }
+
+  .wrapper {
+    box-shadow: 0 20px 25px rgb(0 0 0 / 15%);
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px
+  }
+
+  .hero:hover .hero-content {
+    bottom: 0;
+  }
+
+  .hero-content {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .recipe-metas {
+    @apply w-2/3 flex justify-center p-1 gap-x-2 mx-auto text-[#646464] bg-[#f8f8f8];
+
+  }
+
+  .recipe-metas>li {
+    @apply flex gap-x-1 items-center;
+  }
+
+  .awd:hover .slick-previo,
+  .awd:hover .slick-nextio {
+    opacity: 1;
+  }
+  input[type="checkbox"]{position:relative;@apply mr-4;width:20px;height:20px}
+input[type="checkbox"]:checked::before{
+  @apply bg-primary;
+  border-color:#47c757;
+  box-shadow: 0px 4px 10px 0px rgb(44 218 57 / 35%);
+}
+input[type="checkbox"]::before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    
+    
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+  input[type="checkbox"]::after{
+    font-family: 'FontAwesome';
+    content: "\f00c";
+    font-weight: 900;
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;text-align:Center; 
+    top:-3px;
+    color:#fff;
+    font-size:15px
+    
+}
+input[type="checkbox"]:checked+span{
+  text-decoration:line-through
+}
+
+label{
+  @apply my-2 block
+}
+.yemek-ing{box-shadow: 0px 0px 27px 0px rgb(0 0 0 / 13%);}
+.yemek-desc ol{@apply list-decimal; padding: 10px 25px;font-size: 18px;}
+.yemek-desc li{margin:0.5rem 0}
+  .slick-previo,
+  .slick-nextio {
+    width: 60px;
+    height: 60px;
+    color: #47c757;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 50% !important;
+    box-shadow: 0px 0px 8px 0px rgb(222 222 222 / 70%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.2s ease 0s;
+    z-index: 20;
+    cursor: pointer
+  }
+
+  .slick-previo {
+    left: 5%;
+  }
+
+  .slick-nextio {
+    right: 5%;
+  }
+
+  .title-header {
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 50px;
+  }
+
+  .title-header::before {
+    position: absolute;
+    content: "";
+    bottom: -2px;
+    left: 0;
+    background-color: #47c757;
+    height: 3px;
+    width: 50px;
+
+  }
+
+  .trends-row>article:first-of-type {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .trends-row>article:first-of-type img {
+    height:400px
+  }
+
+  .activepage{
+    @apply text-primary px-4 py-5 block;
+  }
+  .menuitems{@apply px-4 py-5 block;}
+
+
+  .title {
+    @apply text-3xl font-semibold mb-4;
+    font-family: "Oxygen"
+  }
+
+  .sub-title {
+    @apply text-primary font-semibold
+  }
+}
+
+
+
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
